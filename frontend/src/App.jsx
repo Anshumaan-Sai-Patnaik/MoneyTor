@@ -1,8 +1,11 @@
 import './App.css'
+import LandingPage from './landingPage/!main'
 
 function App() {
   return (
-    <p>Hello World</p>
+    <>
+      <LandingPage />
+    </>
   )
 }
 
