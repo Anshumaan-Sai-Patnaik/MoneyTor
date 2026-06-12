@@ -25,7 +25,7 @@ function PricingSection() {
             </div>
           </div>
         </div>
-        <span className="text-blue-600 whitespace-nowrap">See pricing <i class="fa-solid fa-arrow-right text-xs"></i></span>
+        <span className="text-blue-600 whitespace-nowrap cursor-pointer">See pricing <i class="fa-solid fa-arrow-right text-xs"></i></span>
       </div>
     </>
    );

@@ -15,7 +15,7 @@ function Header() {
           <li className="mx-4 max-[961px]:hidden hover:text-blue-600"><Link to='/support'>Support</Link></li>
           <li className="min-[961px]:hidden mr-2">
             <details>
-              <summary><i class="fa-solid fa-bars mr-2 text-xl"></i></summary>
+              <summary><i className="fa-solid fa-bars mr-2 text-xl"></i></summary>
               <ul className="bg-white rounded-t-none p-2">
                 <li className="hover:text-blue-600"><Link to='/signup'>Signup</Link></li>
                 <li className="hover:text-blue-600"><Link to='/about'>About</Link></li>

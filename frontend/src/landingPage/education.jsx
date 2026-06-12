@@ -8,9 +8,9 @@ function EducationSection() {
         <div className="flex flex-col m-4 max-w-[528px] ml-auto">
           <h1 className='text-xl text-black mb-3'>Free and open market education</h1>
           <p className='text-lg text-gray-600 my-3'>Varsity, the largest online stock market education book in the world covering everything from the basics to advanced trading.</p>
-          <span className="text-blue-600 whitespace-nowrap mb-3">Varsity <i class="fa-solid fa-arrow-right text-xs"></i></span>
+          <span className="text-blue-600 whitespace-nowrap mb-3 cursor-pointer">Varsity <i class="fa-solid fa-arrow-right text-xs"></i></span>
           <p className='text-lg text-gray-600 my-3'>TradingQ&A, the most active trading and investment community in India for all your market related queries.</p>
-          <span className="text-blue-600 whitespace-nowrap">TradingQ&A <i class="fa-solid fa-arrow-right text-xs"></i></span>
+          <span className="text-blue-600 whitespace-nowrap cursor-pointer">TradingQ&A <i class="fa-solid fa-arrow-right text-xs"></i></span>
         </div>
       </div>
     </div>
