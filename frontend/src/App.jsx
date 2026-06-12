@@ -5,7 +5,7 @@ import Signup from './landingPage/!main'
 import About from './aboutPage/!main'
 import Product from './productPage/!main'
 import Pricing from './pricingPage/!main'
-import Support from './landingPage/!main'
+import Support from './supportPage/!main'
 import NotFound from './notFound'
 
 function App() {

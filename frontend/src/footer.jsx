@@ -1,6 +1,6 @@
 function Footer() {
   return ( 
-    <div className="flex flex-col items-center bg-gray-50 border-t border-gray-200 px-3 py-8 my-8 mx-3">
+    <div className="flex w-full flex-col items-center bg-gray-50 border-t border-gray-200 px-3 py-8 my-8 mx-3">
       <div className="flex justify-between w-full max-w-[1100px] max-[796.7px]:flex-col flex-wrap mb-7">
         <div className="flex flex-col flex-1 max-w-[242px] min-w-[165px] mr-4">
           <h1 className="text-2xl font-semibold text-blue-700 ml-4 mb-3">MoneyTor</h1>
@@ -67,7 +67,7 @@ function Footer() {
         <p className="text-xs text-gray-400 my-4">*Customers availing insurance advisory services offered by Ditto (Tacterial Consulting Private Limited | IRDAI Registered Corporate Agent (Composite) License No CA0738) will not have access to the exchange investor grievance redressal forum, SEBI SCORES/ODR, or arbitration mechanism for such products.</p>
         <p className="text-xs text-gray-400 my-4">Fixed deposit products offered on this platform are third-party products (TPP) and are not Exchange traded products. These are offered through Blostem Fintech Private Limited. MoneyTor Broking Limited (SEBI Registration No.: INZ000031633) is acting solely as a distributor for these products. Any disputes arising with respect to such distribution activity will not have access to SEBI SCORES/ODR, Exchange Investor Grievance Redressal Forum, or Arbitration mechanism. Fixed deposits are regulated by the Reserve Bank of India (RBI).</p>
       </div>
-      <div className="flex flex-wrap mt-5 gap-5 gap-y-8 w-full">
+      <div className="flex flex-wrap mt-5 gap-5 gap-y-8 w-full max-w-[1100px]">
         <span class="text-xs font-semibold text-gray-400 hover:text-blue-600 transition-colors cursor-pointer">NSE</span>
         <span class="text-xs font-semibold text-gray-400 hover:text-blue-600 transition-colors cursor-pointer">BSE</span>
         <span class="text-xs font-semibold text-gray-400 hover:text-blue-600 transition-colors cursor-pointer">MCX</span>
