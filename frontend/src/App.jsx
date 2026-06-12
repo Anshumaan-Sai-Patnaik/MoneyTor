@@ -4,7 +4,7 @@ import Home from './landingPage/!main'
 import Signup from './landingPage/!main'
 import About from './aboutPage/!main'
 import Product from './productPage/!main'
-import Pricing from './landingPage/!main'
+import Pricing from './pricingPage/!main'
 import Support from './landingPage/!main'
 import NotFound from './notFound'
 
