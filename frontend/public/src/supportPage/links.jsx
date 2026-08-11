@@ -1,11 +1,12 @@
 function Links() {
-    const quickLinks = [
-  "Track account opening",
-  "Track segment activation",
-  "Intraday margins",
-  "Kite user manual",
-  "Learn how to create a ticket",
-];
+  const quickLinks = [
+    "Track account opening",
+    "Track segment activation",
+    "Intraday margins",
+    "Kite user manual",
+    "Learn how to create a ticket",
+  ];
+  
   return ( 
     <>
       <div className="flex justify-center w-full my-4 px-8">
