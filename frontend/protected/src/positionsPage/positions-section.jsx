@@ -1,9 +1,6 @@
 import { fmt, thClass, tdClass, signClass } from "../table";
 
-const positions = [
-  { product: "CNC", name: "EVEREADY", qty: 2, avg: 316.27, price: 312.35, day: "-1.24%" },
-  { product: "MIS", name: "JUBLFOOD", qty: 1, avg: 3124.75, price: 3082.65, day: "-1.35%" },
-];
+import { positions } from "../data/data";
 
 const hideSm = "max-[700px]:hidden";
 

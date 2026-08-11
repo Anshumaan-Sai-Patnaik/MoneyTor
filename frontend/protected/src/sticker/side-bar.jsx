@@ -1,14 +1,4 @@
-const watchlist = [
-  { name: "INFY", price: "1,555.45", percent: "-1.60%", down: true },
-  { name: "ONGC", price: "116.80", percent: "-0.09%", down: true },
-  { name: "TCS", price: "3,194.80", percent: "-0.25%", down: true },
-  { name: "KPITTECH", price: "266.45", percent: "+3.54%", down: false },
-  { name: "QUICKHEAL", price: "308.55", percent: "-0.15%", down: true },
-  { name: "WIPRO", price: "577.75", percent: "+0.82%", down: false },
-  { name: "M&M", price: "779.80", percent: "-0.01%", down: true },
-  { name: "RELIANCE", price: "2,112.40", percent: "+1.44%", down: false },
-  { name: "HUL", price: "512.40", percent: "-1.04%", down: true },
-];
+import { watchlist } from "../data/data";
 
 function SideBar() {
   return (
