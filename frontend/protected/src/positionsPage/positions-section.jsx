@@ -1,6 +1,7 @@
-import { fmt, thClass, tdClass, signClass } from "../table";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-import { positions } from "../data/data";
+import { fmt, thClass, tdClass, signClass } from "../table";
 
 const hideSm = "max-[700px]:hidden";
 
@@ -10,6 +11,16 @@ const badgeClass = (product) =>
     : "inline-block rounded-sm bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-700";
 
 function PositionsSection() {
+  const [positions, setPositions] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/allPositions")
+      .then((response) => {
+        setPositions(response.data);
+      });
+  }, []);
+
   return (
     <div className="flex w-full flex-col">
       <h3 className="mb-4 text-[1.3rem] font-light text-gray-600">Positions ({positions.length})</h3>

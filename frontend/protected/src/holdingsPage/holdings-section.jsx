@@ -1,6 +1,7 @@
-import { fmt, thClass, tdClass, signClass } from "../table";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-import { holdings } from "../data/data";
+import { fmt, thClass, tdClass, signClass } from "../table";
 
 const hideMd = "max-[900px]:hidden";
 const hideSm = "max-[700px]:hidden";
@@ -22,10 +23,20 @@ function Totals({ value, label, profit }) {
 }
 
 function HoldingsSection() {
+  const [holdings, setHoldings] = useState([]);
+
   const investment = holdings.reduce((sum, stock) => sum + stock.avg * stock.qty, 0);
   const current = holdings.reduce((sum, stock) => sum + stock.price * stock.qty, 0);
   const pnl = current - investment;
   const pnlPercent = (pnl / investment) * 100;
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/allHoldings")
+      .then((response) => {
+        setHoldings(response.data);
+      });
+  }, []);
 
   return (
     <div className="flex w-full flex-col">
