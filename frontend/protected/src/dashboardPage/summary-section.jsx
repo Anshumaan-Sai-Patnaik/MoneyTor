@@ -1,31 +1,45 @@
-const sections = [
-  {
-    title: "Equity",
-    icon: "fa-solid fa-chart-pie",
-    value: "3.74k",
-    change: "",
-    label: "Margin available",
-    profit: false,
-    rows: [
-      { label: "Margins used", value: "0" },
-      { label: "Opening balance", value: "3.74k" },
-    ],
-  },
-  {
-    title: "Holdings (13)",
-    icon: "fa-solid fa-briefcase",
-    value: "1.55k",
-    change: "+5.20%",
-    label: "P&L",
-    profit: true,
-    rows: [
-      { label: "Current Value", value: "31.43k" },
-      { label: "Investment", value: "29.88k" },
-    ],
-  },
-];
+import { useMarket } from "../context/MarketContext";
+import { compact, fmt, pct } from "../utils/table";
 
 function Summary() {
+  const { funds, holdings, positions, orders, loading } = useMarket();
+
+  const investment = holdings.reduce((sum, stock) => sum + stock.avg * stock.qty, 0);
+  const current = holdings.reduce((sum, stock) => sum + stock.price * stock.qty, 0);
+  const pnl = current - investment;
+  const pnlPercent = investment ? (pnl / investment) * 100 : 0;
+
+  const openOrders = orders.filter((order) => order.status === "OPEN").length;
+
+  const sections = [
+    {
+      title: "Equity",
+      icon: "fa-solid fa-chart-pie",
+      value: compact(funds.available),
+      change: "",
+      label: "Margin available",
+      profit: false,
+      rows: [
+        { label: "Margins used", value: compact(funds.usedMargin) },
+        { label: "Opening balance", value: compact(funds.openingBalance) },
+      ],
+    },
+    {
+      title: `Holdings (${holdings.length})`,
+      icon: "fa-solid fa-briefcase",
+      value: compact(pnl),
+      change: pct(pnlPercent),
+      label: "P&L",
+      profit: pnl >= 0,
+      rows: [
+        { label: "Current Value", value: compact(current) },
+        { label: "Investment", value: compact(investment) },
+      ],
+    },
+  ];
+
+  if (loading) return <p className="text-sm font-light text-gray-400">Loading...</p>;
+
   return (
     <div className="flex w-full max-w-[900px] flex-col">
       <h1 className="text-2xl text-gray-700">Hi, User!</h1>
@@ -42,7 +56,7 @@ function Summary() {
             <div className="min-w-[150px]">
               <h3 className={section.profit ? "text-[2.5rem] font-light text-green-600" : "text-[2.5rem] font-light text-gray-700"}>
                 {section.value}
-                {section.change && <small className="ml-2 text-sm text-green-600">{section.change}</small>}
+                {section.change && (<small className={section.profit ? "ml-2 text-sm text-green-600" : "ml-2 text-sm text-red-500"}>{section.change}</small>)}
               </h3>
               <p className="text-xs text-gray-500">{section.label}</p>
             </div>
@@ -62,6 +76,21 @@ function Summary() {
           <hr className="my-6 h-px border-none bg-gray-300" />
         </div>
       ))}
+
+      <div className="flex flex-wrap gap-10 max-[600px]:gap-5">
+        <div>
+          <p className="text-[1.3rem] font-light text-gray-700">{positions.length}</p>
+          <p className="text-xs text-gray-500">Open positions</p>
+        </div>
+        <div>
+          <p className="text-[1.3rem] font-light text-gray-700">{openOrders}</p>
+          <p className="text-xs text-gray-500">Orders waiting</p>
+        </div>
+        <div>
+          <p className="text-[1.3rem] font-light text-gray-700">{fmt(funds.usedMargin)}</p>
+          <p className="text-xs text-gray-500">Margin used</p>
+        </div>
+      </div>
     </div>
   );
 }
